@@ -36,7 +36,6 @@ TPClyMethodCodeEditorToolMorph >> applyChanges [
 { #category : #building }
 TPClyMethodCodeEditorToolMorph >> applyDecorations [
 	| hasEdits |
-	self haltOnce.
 	hasEdits := textMorph hasUnacceptedEdits.
 	textMorph segments copy do: #delete.	
 	"literal methods do not need ot be stylized and this is an operation that can take 
@@ -123,6 +122,12 @@ TPClyMethodCodeEditorToolMorph >> decorateContainerTab [
 { #category : #initialization }
 TPClyMethodCodeEditorToolMorph >> defaultIconName [
 	^#scriptManagerIcon
+]
+
+{ #category : #initialization }
+TPClyMethodCodeEditorToolMorph >> defaultTitle [
+
+	^ super defaultTitle , 'Philippe'
 ]
 
 { #category : #controlling }

@@ -9,5 +9,6 @@ BaselineOfTemporaryParser >> baseline: spec [
 	<baseline>
 	spec for: #common do: [ spec
 		package: 'TemporaryParser';
+		package: 'TemporaryParser-CompilerExtension' with: [ spec requires: #('TemporaryParser') ];
 		package: 'TemporaryParser-Tests' with: [ spec requires: #('TemporaryParser') ] ]
 ]

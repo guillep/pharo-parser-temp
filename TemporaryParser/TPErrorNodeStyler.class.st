@@ -8,10 +8,9 @@ Class {
 TPErrorNodeStyler >> addIconStyle: aNode from: start to: stop color: aColor [
 	|conf|
 	(self shouldStyleNode: aNode) ifFalse: [ ^self ].
-	self haltOnce.
 	conf := RubConfigurationChange new.
 	conf configurationBlock: [ :text| |r| 
-		r := RubUnderlinedSegmentMorph from: start to: stop + 1.
+		r := RubUnderlinedSegmentMorph from: aNode start to: aNode stop + 1.
 		text addSegment: r.
 		
 		r label: (self iconLabelBlock: aNode).
@@ -36,6 +35,6 @@ TPErrorNodeStyler >> iconLabel: aNode [
 
 { #category : #visiting }
 TPErrorNodeStyler >> shouldStyleNode: aNode [
-self haltOnce.
+
 	^aNode isParseError.
 ]
